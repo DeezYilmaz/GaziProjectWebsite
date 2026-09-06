@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Zap, Eye, Users, Award, Star, Play, ChevronRight, Wifi, Battery } from "lucide-react";
+import { Zap, Eye, Users, Award, Star, ChevronRight, Wifi, Battery } from "lucide-react";
 
 interface ButtonProps {
   onTestClicked: () => void; 
@@ -128,11 +128,12 @@ function QuestGameAd({onTestClicked}: ButtonProps) {
             {[1, 2, 3, 4, 5].map((k) => {
               const r = 10 + k * 18 + Math.sin(ring / 15 + k) * 3;
               return (
-                <circle
+                <ellipse
                   key={k}
                   cx="160"
                   cy="120"
-                  r={r}
+                  ry={r*0.5}
+                  rx={r*1.2} 
                   fill="none"
                   stroke="#5EEAD4"
                   strokeWidth="1.4"
