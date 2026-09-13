@@ -3,9 +3,12 @@ import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vite'
 
 // https://vite.dev/config/
-export default defineConfig({
-  plugins: [
+export default defineConfig(({command}) =>{
+  return {
+      plugins: [
     tailwindcss(),
     react()],
-    base:"/GaziProjectWebsite/"
+    base: command === 'build' ? "/GaziProjectWebsite/" :"/",
+    publicDir: 'public'
+  }
 })

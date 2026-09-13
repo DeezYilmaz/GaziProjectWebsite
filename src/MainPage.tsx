@@ -1,9 +1,10 @@
 import { useState } from "react";
 import TechSupport from "./TechSupport";
-import myImage from './assets/VR_image.png';
+import HowToUse from "./HowToUse";
+import Gallery from "./GalleryImage";
 
-type Lang = "en" | "tr";
-type expScreen = "main"| "exp1" | "exp2" | "exp3" | "exp4";
+export type Lang = "en" | "tr";
+type expScreen = "main"|"guide"| "exp1" | "exp2" | "exp3" | "exp4";
 const sets: { titleEn: string; titleTr: string; icon:string, experiments: { en: string; tr: string, screen:expScreen }[] }[] = [
   {
     titleEn: "Ampere's Law",
@@ -139,7 +140,7 @@ function MainPage() {
         .vsl-hero-text { flex: 1.2; text-align: left; }
         .vsl-hero-text h1 {
           font-family: 'Rajdhani', sans-serif;
-          font-size: 1.8rem;
+          font-size: 2.8rem;
           font-weight: 800;
           margin-bottom: 1rem;
           line-height: 1.2;
@@ -148,7 +149,8 @@ function MainPage() {
           -webkit-text-fill-color: transparent;
           text-transform: uppercase;
         }
-        .vsl-hero-text p { font-size: 1rem; color: var(--text-sub); margin: 0.5rem 0 0 0; }
+        .vsl-hero-text p { font-size: 1.6rem; color: var(--text-sub); 
+            color: var(--accent-yellow); margin: 0.5rem 0 0 0; }
 
         .vsl-hero-image-wrapper {
           flex: 0.8;
@@ -415,7 +417,7 @@ function MainPage() {
         </a>
         <nav className="vsl-nav">
           <ul>
-            <li><a href="#">{t("Home", "Ana Sayfa")}</a></li>
+            <li onClick={ () => {console.log("opened") ,setScreen("guide")}}><a href="#">{t("How To Use", "Nasıl Kullanılır")}</a></li>
             <li onClick={ () => {console.log("opened") ,setIsModalOpen(true)}}><a href="#">{t("Support", "Destek")}</a></li>
             <li>
               <button className="vsl-lang-switch" onClick={() => setLang(lang === "en" ? "tr" : "en")}>
@@ -427,10 +429,11 @@ function MainPage() {
       </header>
       <TechSupport Lang={lang} isOpen={isModalOpen} onClose={()=>{console.log("closed") ,setIsModalOpen(false)}}></TechSupport>
       {(screen === "main") && startPage(lang, (page: expScreen) => setScreen(page) ) }
-      {(screen === "exp1") && Exp1Page(lang) }
-      {(screen === "exp2") && Exp2Page(lang) }
-      {(screen === "exp3") && Exp3Page(lang) }
-      {(screen === "exp4") && Exp4Page(lang) }
+      {(screen === "exp1") && Exp1Page(lang, ()=>{setIsModalOpen(true)} ) }
+      {(screen === "exp2") && Exp2Page(lang, ()=>{setIsModalOpen(true)}) }
+      {(screen === "exp3") && Exp3Page(lang, ()=>{setIsModalOpen(true)}) }
+      {(screen === "exp4") && Exp4Page(lang, ()=>{setIsModalOpen(true)}) }
+      {(screen === "guide") && HowToUse(lang) }
 
     <footer className="vsl-footer">
         <div className="footer-project">
@@ -473,7 +476,7 @@ function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => 
             <p>{t("Are you ready for a science adventure?", "Bir bilim macerasına hazır mısınız?")}</p>
           </div>
           <div className="vsl-hero-image-wrapper">
-            <img src={myImage} alt="VR STEM LAB Student" className="vsl-hero-image" />
+            <img src="/VR_image.png" alt="VR STEM LAB Student" className="vsl-hero-image" />
           </div>
 
         
@@ -504,7 +507,8 @@ function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => 
                   </div>
               </div>
             ))}
-
+        <section className="vsl-hero"></section>
+        <Gallery lang={lang}></Gallery>
         </div>
         </section>
       </main>
@@ -653,12 +657,13 @@ function getStyle(){
       `}</style>
   )
 }
-function Exp1Page(lang: Lang){
+function Exp1Page(lang: Lang,openModal:any){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   return(
     <div className="vsl-exp-page">
       {getStyle()}
       <main className="vsl-exp-page-main">
+        
         <div className="vsl-exp-card">
           <h1 className="vsl-exp-title">
             {t("Ampere's Law - Motivation Experiment", "Ampere Yasası - Motivasyon Deneyi")}
@@ -689,7 +694,7 @@ function Exp1Page(lang: Lang){
         </div>
 
         <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={() => console.log("Technical support clicked")}>
+          <button className="vsl-tech-btn" onClick={openModal}>
             {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
           </button>
         </div>
@@ -698,7 +703,7 @@ function Exp1Page(lang: Lang){
   )
 }
 
-function Exp2Page(lang: Lang){
+function Exp2Page(lang: Lang,openModal:any){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   return(
     <div className="vsl-exp-page">
@@ -731,7 +736,7 @@ function Exp2Page(lang: Lang){
         </div>
 
         <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={() => console.log("Technical support clicked")}>
+          <button className="vsl-tech-btn" onClick={openModal}>
             {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
           </button>
         </div>
@@ -740,7 +745,7 @@ function Exp2Page(lang: Lang){
   )
 }
 
-function Exp3Page(lang: Lang){
+function Exp3Page(lang: Lang,openModal:any){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   return(
     <div className="vsl-exp-page">
@@ -773,7 +778,7 @@ function Exp3Page(lang: Lang){
         </div>
 
         <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={() => console.log("Technical support clicked")}>
+          <button className="vsl-tech-btn" onClick={openModal}>
             {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
           </button>
         </div>
@@ -782,7 +787,7 @@ function Exp3Page(lang: Lang){
   )
 }
 
-function Exp4Page(lang: Lang){
+function Exp4Page(lang: Lang,openModal:any){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   return(
     <div className="vsl-exp-page">
@@ -815,7 +820,7 @@ function Exp4Page(lang: Lang){
         </div>
 
         <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={() => console.log("Technical support clicked")}>
+          <button className="vsl-tech-btn" onClick={openModal}>
             {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
           </button>
         </div>
