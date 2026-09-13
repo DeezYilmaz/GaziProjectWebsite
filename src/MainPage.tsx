@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TechSupport from "./TechSupport";
+import myImage from './assets/VR_image.png';
 
 type Lang = "en" | "tr";
 type expScreen = "main"| "exp1" | "exp2" | "exp3" | "exp4";
@@ -472,7 +473,7 @@ function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => 
             <p>{t("Are you ready for a science adventure?", "Bir bilim macerasına hazır mısınız?")}</p>
           </div>
           <div className="vsl-hero-image-wrapper">
-            <img src="src/assets/VR_image.png" alt="VR STEM LAB Student" className="vsl-hero-image" />
+            <img src={myImage} alt="VR STEM LAB Student" className="vsl-hero-image" />
           </div>
 
         
