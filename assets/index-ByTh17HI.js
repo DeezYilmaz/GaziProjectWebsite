@@ -182,7 +182,7 @@ Error generating stack: `+e.message+`
         .vsl-hero { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 2.5rem; }
         .vsl-hero-text { flex: 1.2; text-align: left; }
         .vsl-hero-text h1 {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           font-size: 1.8rem;
           font-weight: 800;
           margin-bottom: 1rem;
@@ -228,7 +228,7 @@ Error generating stack: `+e.message+`
         }
 
         .vsl-section-title {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           font-size: 1.4rem;
           text-align: center;
           margin-bottom: 1.5rem;
@@ -256,7 +256,7 @@ Error generating stack: `+e.message+`
         }
         .vsl-set-card:hover { transform: translateY(-5px); border-color: var(--primary-glow); }
         .vsl-set-card h3 {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           font-size: 1.1rem;
           color: var(--primary-glow);
           margin-bottom: 1rem;
@@ -295,7 +295,7 @@ Error generating stack: `+e.message+`
           padding: 0.7rem;
           background: rgba(5, 8, 14, 0.95);
           border-top: 1px solid rgba(255, 255, 255, 0.05);
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           color: var(--text-sub);
           letter-spacing: 0.5px;
           margin-top: auto;
@@ -345,7 +345,7 @@ Error generating stack: `+e.message+`
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: clamp(0.85rem, 1vw, 1rem);
             font-weight: 700;
         }
@@ -413,7 +413,7 @@ Error generating stack: `+e.message+`
         }
 
         .exp-num {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: 0.85rem;
             font-weight: 800;
             color: var(--primary-glow);
@@ -426,7 +426,7 @@ Error generating stack: `+e.message+`
             line-height: 1.2;
         }
         .footer-project {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: 0.7rem;
             font-weight: 700;
             color: var(--primary-glow);
@@ -447,7 +447,7 @@ Error generating stack: `+e.message+`
           .vsl-hero-text { text-align: center; }
           .vsl-header { flex-direction: column; gap: 1.2rem; }
         }
-      `}),(0,f.jsxs)(`header`,{className:`vsl-header`,children:[(0,f.jsx)(`a`,{href:`#`,className:`vsl-logo`,onClick:()=>r(`main`),children:(0,f.jsxs)(`div`,{className:`vsl-logo-text`,children:[(0,f.jsx)(`span`,{className:`vr`,children:`VR`}),(0,f.jsx)(`span`,{className:`stem`,children:`STEM`}),(0,f.jsx)(`span`,{className:`lab`,children:`LAB`})]})}),(0,f.jsx)(`nav`,{className:`vsl-nav`,children:(0,f.jsxs)(`ul`,{children:[(0,f.jsx)(`li`,{children:(0,f.jsx)(`a`,{href:`#`,children:o(`Home`,`Ana Sayfa`)})}),(0,f.jsx)(`li`,{onClick:()=>{console.log(`opened`),a(!0)},children:(0,f.jsx)(`a`,{href:`#`,children:o(`Support`,`Destek`)})}),(0,f.jsx)(`li`,{children:(0,f.jsx)(`button`,{className:`vsl-lang-switch`,onClick:()=>t(e===`en`?`tr`:`en`),children:e===`en`?`TR`:`ENG`})})]})})]}),(0,f.jsx)(p,{Lang:e,isOpen:i,onClose:()=>{console.log(`closed`),a(!1)}}),n===`main`&&_(e,e=>r(e)),n===`exp1`&&y(e),n===`exp2`&&b(e),n===`exp3`&&x(e),n===`exp4`&&ee(e),(0,f.jsxs)(`footer`,{className:`vsl-footer`,children:[(0,f.jsx)(`div`,{className:`footer-project`,children:o(`Gazi University Project (SGA-2026-11007)`,`Gazi Üniversitesi Projesi (SGA-2026-11007)`)}),(0,f.jsx)(`div`,{className:`footer-copyright`,children:o(` © Gazi University. All Rights Reserved. All intellectual property rights belong to Gazi University. Use for academic and scientific research requires prior written permission.`,`© Gazi Üniversitesi. Tüm Hakları Saklıdır. Tüm fikri mülkiyet hakları Gazi Üniversitesi'ne aittir. Akademik ve bilimsel araştırmalar için kullanımı önceden yazılı izin gerektirir.`)})]})]})}function g(e){let t=e.closest(`.accordion-item`),n=t.classList.contains(`active`);document.querySelectorAll(`.accordion-item`).forEach(e=>{e.classList.remove(`active`)}),n||t.classList.add(`active`)}function _(e,t=()=>{}){let n=(t,n)=>e===`en`?t:n;return(0,f.jsxs)(`main`,{className:`vsl-main`,children:[(0,f.jsxs)(`section`,{className:`vsl-hero`,children:[(0,f.jsxs)(`div`,{className:`vsl-hero-text`,children:[(0,f.jsx)(`h1`,{children:`Virtual Reality STEM Laboratory`}),(0,f.jsx)(`p`,{children:n(`Are you ready for a science adventure?`,`Bir bilim macerasına hazır mısınız?`)})]}),(0,f.jsx)(`div`,{className:`vsl-hero-image-wrapper`,children:(0,f.jsx)(`img`,{src:`src/assets/vr-student.jpeg`,alt:`VR STEM LAB Student`,className:`vsl-hero-image`})})]}),(0,f.jsxs)(`section`,{children:[(0,f.jsx)(`h2`,{className:`vsl-section-title`,children:n(`VR STEM Activity Sets`,`VR STEM Etkinlik Setleri`)}),(0,f.jsx)(`div`,{className:`accordion-container`,children:m.map((e,r)=>(0,f.jsxs)(`div`,{className:`accordion-item`,children:[(0,f.jsxs)(`button`,{className:`accordion-header`,onClick:e=>g(e.target),children:[(0,f.jsxs)(`div`,{className:`header-title`,children:[(0,f.jsx)(`span`,{className:`header-icon`,children:e.icon}),(0,f.jsx)(`span`,{children:n(e.titleEn,e.titleTr)})]}),(0,f.jsx)(`span`,{className:`arrow-icon`,children:`▼`})]}),(0,f.jsx)(`div`,{className:`accordion-content`,children:(0,f.jsx)(`div`,{className:`sub-experiments-grid`,children:e.experiments.map((e,i)=>(0,f.jsxs)(`div`,{className:`sub-exp-card`,onClick:r===0?()=>t(e.screen):()=>{},children:[(0,f.jsx)(`span`,{className:`exp-num`,children:r+1+`.`+i}),(0,f.jsx)(`span`,{className:`exp-name`,children:n(e.en,e.tr)})]},i))})})]},r))})]})]})}function v(){return(0,f.jsx)(`style`,{children:`
+      `}),(0,f.jsxs)(`header`,{className:`vsl-header`,children:[(0,f.jsx)(`a`,{href:`#`,className:`vsl-logo`,onClick:()=>r(`main`),children:(0,f.jsxs)(`div`,{className:`vsl-logo-text`,children:[(0,f.jsx)(`span`,{className:`vr`,children:`VR`}),(0,f.jsx)(`span`,{className:`stem`,children:`STEM`}),(0,f.jsx)(`span`,{className:`lab`,children:`LAB`})]})}),(0,f.jsx)(`nav`,{className:`vsl-nav`,children:(0,f.jsxs)(`ul`,{children:[(0,f.jsx)(`li`,{children:(0,f.jsx)(`a`,{href:`#`,children:o(`Home`,`Ana Sayfa`)})}),(0,f.jsx)(`li`,{onClick:()=>{console.log(`opened`),a(!0)},children:(0,f.jsx)(`a`,{href:`#`,children:o(`Support`,`Destek`)})}),(0,f.jsx)(`li`,{children:(0,f.jsx)(`button`,{className:`vsl-lang-switch`,onClick:()=>t(e===`en`?`tr`:`en`),children:e===`en`?`TR`:`ENG`})})]})})]}),(0,f.jsx)(p,{Lang:e,isOpen:i,onClose:()=>{console.log(`closed`),a(!1)}}),n===`main`&&_(e,e=>r(e)),n===`exp1`&&y(e),n===`exp2`&&b(e),n===`exp3`&&x(e),n===`exp4`&&ee(e),(0,f.jsxs)(`footer`,{className:`vsl-footer`,children:[(0,f.jsx)(`div`,{className:`footer-project`,children:o(`Gazi University Project (SGA-2026-11007)`,`Gazi Üniversitesi Projesi (SGA-2026-11007)`)}),(0,f.jsx)(`div`,{className:`footer-copyright`,children:o(` © Gazi University. All Rights Reserved. All intellectual property rights belong to Gazi University. Use for academic and scientific research requires prior written permission.`,`© Gazi Üniversitesi. Tüm Hakları Saklıdır. Tüm fikri mülkiyet hakları Gazi Üniversitesi'ne aittir. Akademik ve bilimsel araştırmalar için kullanımı önceden yazılı izin gerektirir.`)})]})]})}function g(e){let t=e.closest(`.accordion-item`),n=t.classList.contains(`active`);document.querySelectorAll(`.accordion-item`).forEach(e=>{e.classList.remove(`active`)}),n||t.classList.add(`active`)}function _(e,t=()=>{}){let n=(t,n)=>e===`en`?t:n;return(0,f.jsxs)(`main`,{className:`vsl-main`,children:[(0,f.jsxs)(`section`,{className:`vsl-hero`,children:[(0,f.jsxs)(`div`,{className:`vsl-hero-text`,children:[(0,f.jsx)(`h1`,{children:`Virtual Reality STEM Laboratory`}),(0,f.jsx)(`p`,{children:n(`Are you ready for a science adventure?`,`Bir bilim macerasına hazır mısınız?`)})]}),(0,f.jsx)(`div`,{className:`vsl-hero-image-wrapper`,children:(0,f.jsx)(`img`,{src:`src/assets/VR_image.png`,alt:`VR STEM LAB Student`,className:`vsl-hero-image`})})]}),(0,f.jsxs)(`section`,{children:[(0,f.jsx)(`h2`,{className:`vsl-section-title`,children:n(`VR STEM Activity Sets`,`VR STEM Etkinlik Setleri`)}),(0,f.jsx)(`div`,{className:`accordion-container`,children:m.map((e,r)=>(0,f.jsxs)(`div`,{className:`accordion-item`,children:[(0,f.jsxs)(`button`,{className:`accordion-header`,onClick:e=>g(e.target),children:[(0,f.jsxs)(`div`,{className:`header-title`,children:[(0,f.jsx)(`span`,{className:`header-icon`,children:e.icon}),(0,f.jsx)(`span`,{children:n(e.titleEn,e.titleTr)})]}),(0,f.jsx)(`span`,{className:`arrow-icon`,children:`▼`})]}),(0,f.jsx)(`div`,{className:`accordion-content`,children:(0,f.jsx)(`div`,{className:`sub-experiments-grid`,children:e.experiments.map((e,i)=>(0,f.jsxs)(`div`,{className:`sub-exp-card`,onClick:r===0?()=>t(e.screen):()=>{},children:[(0,f.jsx)(`span`,{className:`exp-num`,children:r+1+`.`+i}),(0,f.jsx)(`span`,{className:`exp-name`,children:n(e.en,e.tr)})]},i))})})]},r))})]})]})}function v(){return(0,f.jsx)(`style`,{children:`
         .vsl-exp-page-main {
           flex: 1;
           max-width: 1000px;
@@ -565,7 +565,7 @@ Error generating stack: `+e.message+`
         }
 
         .vsl-exp-section-header {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: clamp(0.95rem, 1.1vw, 1.1rem);
             color: var(--secondary-glow);
             margin-top: 0.3rem;
