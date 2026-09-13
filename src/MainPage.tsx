@@ -137,7 +137,7 @@ function MainPage() {
         .vsl-hero { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 2.5rem; }
         .vsl-hero-text { flex: 1.2; text-align: left; }
         .vsl-hero-text h1 {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           font-size: 1.8rem;
           font-weight: 800;
           margin-bottom: 1rem;
@@ -183,7 +183,7 @@ function MainPage() {
         }
 
         .vsl-section-title {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           font-size: 1.4rem;
           text-align: center;
           margin-bottom: 1.5rem;
@@ -211,7 +211,7 @@ function MainPage() {
         }
         .vsl-set-card:hover { transform: translateY(-5px); border-color: var(--primary-glow); }
         .vsl-set-card h3 {
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           font-size: 1.1rem;
           color: var(--primary-glow);
           margin-bottom: 1rem;
@@ -250,7 +250,7 @@ function MainPage() {
           padding: 0.7rem;
           background: rgba(5, 8, 14, 0.95);
           border-top: 1px solid rgba(255, 255, 255, 0.05);
-          font-family: 'Orbitron', sans-serif;
+          font-family: 'Rajdhani', sans-serif;
           color: var(--text-sub);
           letter-spacing: 0.5px;
           margin-top: auto;
@@ -300,7 +300,7 @@ function MainPage() {
             display: flex;
             align-items: center;
             gap: 0.6rem;
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: clamp(0.85rem, 1vw, 1rem);
             font-weight: 700;
         }
@@ -368,7 +368,7 @@ function MainPage() {
         }
 
         .exp-num {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: 0.85rem;
             font-weight: 800;
             color: var(--primary-glow);
@@ -381,7 +381,7 @@ function MainPage() {
             line-height: 1.2;
         }
         .footer-project {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: 0.7rem;
             font-weight: 700;
             color: var(--primary-glow);
@@ -472,7 +472,7 @@ function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => 
             <p>{t("Are you ready for a science adventure?", "Bir bilim macerasına hazır mısınız?")}</p>
           </div>
           <div className="vsl-hero-image-wrapper">
-            <img src="src/assets/vr-student.jpeg" alt="VR STEM LAB Student" className="vsl-hero-image" />
+            <img src="src/assets/VR_image.png" alt="VR STEM LAB Student" className="vsl-hero-image" />
           </div>
 
         
@@ -629,7 +629,7 @@ function getStyle(){
         }
 
         .vsl-exp-section-header {
-            font-family: 'Orbitron', sans-serif;
+            font-family: 'Rajdhani', sans-serif;
             font-size: clamp(0.95rem, 1.1vw, 1.1rem);
             color: var(--secondary-glow);
             margin-top: 0.3rem;
