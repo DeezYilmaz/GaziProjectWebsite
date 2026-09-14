@@ -1,5 +1,4 @@
 import { useState } from "react";
-import TechSupport from "./TechSupport";
 import HowToUse from "./HowToUse";
 import Gallery from "./GalleryImage";
 
@@ -41,7 +40,6 @@ const sets: { titleEn: string; titleTr: string; icon:string, experiments: { en: 
 function MainPage() {
   const [lang, setLang] = useState<Lang>("en");
   const [screen, setScreen] = useState<expScreen>("main");
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
 
   return (
@@ -491,10 +489,10 @@ function MainPage() {
         </nav>
       </header>
       {(screen === "main") && startPage(lang, (page: expScreen) => setScreen(page) ) }
-      {(screen === "exp1") && Exp1Page(lang, ()=>{setIsModalOpen(true)} ) }
-      {(screen === "exp2") && Exp2Page(lang, ()=>{setIsModalOpen(true)}) }
-      {(screen === "exp3") && Exp3Page(lang, ()=>{setIsModalOpen(true)}) }
-      {(screen === "exp4") && Exp4Page(lang, ()=>{setIsModalOpen(true)}) }
+      {(screen === "exp1") && Exp1Page(lang ) }
+      {(screen === "exp2") && Exp2Page(lang) }
+      {(screen === "exp3") && Exp3Page(lang) }
+      {(screen === "exp4") && Exp4Page(lang) }
       {(screen === "guide") && HowToUse(lang) }
 
     <footer className="vsl-footer">
@@ -721,7 +719,7 @@ function getStyle(){
       `}</style>
   )
 }
-function Exp1Page(lang: Lang,openModal:any){
+function Exp1Page(lang: Lang){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   const items = ['exp1.png'];
   return(
@@ -765,7 +763,7 @@ function Exp1Page(lang: Lang,openModal:any){
   )
 }
 
-function Exp2Page(lang: Lang,openModal:any){
+function Exp2Page(lang: Lang){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   const items = ['exp2.png'];
 
@@ -806,7 +804,7 @@ function Exp2Page(lang: Lang,openModal:any){
   )
 }
 
-function Exp3Page(lang: Lang,openModal:any){
+function Exp3Page(lang: Lang){
   const items = ['exp3.jpeg'];
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   return(
@@ -846,7 +844,7 @@ function Exp3Page(lang: Lang,openModal:any){
   )
 }
 
-function Exp4Page(lang: Lang,openModal:any){
+function Exp4Page(lang: Lang){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr); 
   const items = ['exp4.jpeg'];
 
