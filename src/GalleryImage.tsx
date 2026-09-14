@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
+interface ImageListProps {
+  tags: string[]; // An array containing only strings
+}
+
 function GalleryImage({source} :{source:string}){
 const [isVisible, setIsVisible] = useState(false);
   const elementRef = useRef(null);
@@ -52,8 +56,8 @@ const [isVisible, setIsVisible] = useState(false);
             position: relative;
             }
             .vsl-gallery-image {
-            max-width: 280px;
-            max-height: 400px;
+            max-width: 500px;
+            max-height: 600px;
             width: 100%;
             height: auto;
             position: relative;
@@ -73,13 +77,12 @@ const [isVisible, setIsVisible] = useState(false);
     </div>
   );
 }
-export default function Gallery({lang}:{lang:any}) {
+export default function Gallery({lang,images,showTag}:{lang:any ,images:ImageListProps["tags"],showTag:boolean}) {
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
-    const items = ['/favicon.svg', '/icons.svg', '/VR_image.png'];
     return(
         <div>
-            <div className="vsl-section-title">{t("Images", "Görselles")}</div>
-            {items.map((item,i) => (
+            {showTag && <div className="vsl-section-title">{t("Images", "Görselles")}</div>}
+            {images.map((item,i) => (
                  <GalleryImage key = {i} source={item}/>
                 )
             )}

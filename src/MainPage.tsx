@@ -405,6 +405,64 @@ function MainPage() {
           .vsl-hero-text { text-align: center; }
           .vsl-header { flex-direction: column; gap: 1.2rem; }
         }
+
+                /* DİL SEÇİCİ */
+        .lang-switch-container {
+            display: flex;
+            align-items: center;
+            background: rgba(18, 25, 41, 0.8);
+            border: 1px solid var(--primary-glow);
+            border-radius: 18px;
+            padding: 2px 4px;
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0.2);
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .lang-switch-container:hover {
+            box-shadow: 0 0 12px rgba(0, 242, 254, 0.4);
+        }
+
+        .lang-opt {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 2px 7px;
+            border-radius: 12px;
+            color: var(--text-sub);
+            transition: all 0.3s ease;
+        }
+
+        .lang-divider {
+            color: var(--border-color);
+            font-size: 0.75rem;
+        }
+
+        .lang-opt-en {
+            background: var(--primary-glow);
+            color: var(--bg-color);
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+        }
+
+        .lang-opt-tr {
+            background: var(--primary-glow);
+            color: var(--bg-color);
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0.5);
+        }
+
+                /* DİL MANTIĞI - CSS GİZLEME / GÖSTERME */
+        .lang-tr {
+            background: hidden;
+            color: rgb(187, 187, 187);
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0);
+        }
+
+        .lang-en {
+            background: hidden;
+            color: rgb(187, 187, 187);
+            box-shadow: 0 0 8px rgba(0, 242, 254, 0);
+        }
       `}</style>
 
       <header className="vsl-header">
@@ -417,17 +475,21 @@ function MainPage() {
         </a>
         <nav className="vsl-nav">
           <ul>
-            <li onClick={ () => {console.log("opened") ,setScreen("guide")}}><a href="#">{t("How To Use", "Nasıl Kullanılır")}</a></li>
-            <li onClick={ () => {console.log("opened") ,setIsModalOpen(true)}}><a href="#">{t("Support", "Destek")}</a></li>
+            <li onClick={ () => setScreen("main")}><a href="#">{t("Home", "Anasayfa")}</a></li>
+            <li onClick={ () => setScreen("guide")}><a href="#">{t("How To Use", "Nasıl Kullanılır")}</a></li>
             <li>
-              <button className="vsl-lang-switch" onClick={() => setLang(lang === "en" ? "tr" : "en")}>
+              {/* <button className="vsl-lang-switch" onClick={() => setLang(lang === "en" ? "tr" : "en")}>
                 {lang === "en" ? "TR" : "ENG"}
-              </button>
+              </button> */}
+                   <div className="lang-switch-container" onClick={() => setLang(lang === "en" ? "tr" : "en")}>
+                        <span className={"lang-opt " +( lang==="en" ? "lang-opt-en" : "lang-en")}>ENG</span>
+                        <span className="lang-divider">|</span>
+                        <span className={"lang-opt " +( lang==="tr" ? "lang-opt-tr" : "lang-tr")}>TR</span>
+                    </div>
             </li>
           </ul>
         </nav>
       </header>
-      <TechSupport Lang={lang} isOpen={isModalOpen} onClose={()=>{console.log("closed") ,setIsModalOpen(false)}}></TechSupport>
       {(screen === "main") && startPage(lang, (page: expScreen) => setScreen(page) ) }
       {(screen === "exp1") && Exp1Page(lang, ()=>{setIsModalOpen(true)} ) }
       {(screen === "exp2") && Exp2Page(lang, ()=>{setIsModalOpen(true)}) }
@@ -468,6 +530,8 @@ function toggleAccordion(headerBtn:any) {
 }
 function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => {}) {
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
+  
+  const items = ['menu.png','glass.png', 'exp1.png', 'HandMenu.jpeg'];
   return(
      <main className="vsl-main">
         <section className="vsl-hero">
@@ -476,7 +540,7 @@ function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => 
             <p>{t("Are you ready for a science adventure?", "Bir bilim macerasına hazır mısınız?")}</p>
           </div>
           <div className="vsl-hero-image-wrapper">
-            <img src="/VR_image.png" alt="VR STEM LAB Student" className="vsl-hero-image" />
+            <img src="VR_image.png" alt="VR STEM LAB Student" className="vsl-hero-image" />
           </div>
 
         
@@ -508,7 +572,7 @@ function startPage(lang: Lang, onPageChanged: (page: expScreen) => void = () => 
               </div>
             ))}
         <section className="vsl-hero"></section>
-        <Gallery lang={lang}></Gallery>
+        <Gallery lang={lang} images={items} showTag={true}></Gallery>
         </div>
         </section>
       </main>
@@ -659,6 +723,7 @@ function getStyle(){
 }
 function Exp1Page(lang: Lang,openModal:any){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
+  const items = ['exp1.png'];
   return(
     <div className="vsl-exp-page">
       {getStyle()}
@@ -686,6 +751,7 @@ function Exp1Page(lang: Lang,openModal:any){
             <li>{t("Hematite (Fe₂O₃)", "Hematit (Fe₂O₃)")}</li>
           </ul>
 
+          <Gallery lang={lang} images={items} showTag={false}></Gallery>
           <div className="vsl-vr-notice">
             <p>
               {t("PUT ON YOUR VR HEADSET. YOU WILL FIND ALL THE VIRTUAL MATERIALS FOR THE EXPERIMENT AND ZOZO THE ASSISTANT ON THE VIRTUAL EXPERIMENT TABLE.", "VR GÖZLÜĞÜNÜZÜ TAKIN. DENEY İÇİN GEREKLİ TÜM SANAL MALZEMELERİ VE ASİSTAN ZOZO'YU SANAL DENEY MASASINDA BULACAKSINIZ.")}
@@ -693,11 +759,7 @@ function Exp1Page(lang: Lang,openModal:any){
           </div>
         </div>
 
-        <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={openModal}>
-            {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
-          </button>
-        </div>
+        
       </main>
     </div>
   )
@@ -705,6 +767,8 @@ function Exp1Page(lang: Lang,openModal:any){
 
 function Exp2Page(lang: Lang,openModal:any){
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
+  const items = ['exp2.png'];
+
   return(
     <div className="vsl-exp-page">
       {getStyle()}
@@ -728,6 +792,7 @@ function Exp2Page(lang: Lang,openModal:any){
             {t("Connect the ends of the rectangular wire to the power supply and the ammeter using alligator clip leads. Set the power supply to 2V. Sprinkle iron filings onto the rectangular wire and observe how they arrange themselves in response to the generated magnetic field. Adjust the power supply to 4V, 8V, 10V, and 12V, and observe how the iron filings form patterns at each setting.", "Dikdörtgen telin uçlarını timsah klipsli kablolar kullanarak güç kaynağına ve ampermetreye bağlayın. Güç kaynağını 2V seviyesine ayarlayın. Dikdörtgen telin üzerine demir tozları serpin ve oluşan manyetik alana tepki olarak nasıl dizildiklerini gözlemleyin. Güç kaynağını sırasıyla 4V, 8V, 10V ve 12V'a ayarlayarak demir tozlarının her bir ayarda nasıl desenler oluşturduğunu gözlemleyin.")}
           </p>
 
+          <Gallery lang={lang} images={items} showTag={false}></Gallery>
           <div className="vsl-vr-notice">
             <p>
               {t("PUT ON YOUR VR HEADSET. YOU WILL FIND ALL THE VIRTUAL MATERIALS FOR THE EXPERIMENT AND ZOZO THE ASSISTANT ON THE VIRTUAL EXPERIMENT TABLE.", "VR GÖZLÜĞÜNÜZÜ TAKIN. DENEY İÇİN GEREKLİ TÜM SANAL MALZEMELERİ VE ASİSTAN ZOZO'YU SANAL DENEY MASASINDA BULACAKSINIZ.")}
@@ -735,17 +800,14 @@ function Exp2Page(lang: Lang,openModal:any){
           </div>
         </div>
 
-        <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={openModal}>
-            {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
-          </button>
-        </div>
+        
       </main>
     </div>
   )
 }
 
 function Exp3Page(lang: Lang,openModal:any){
+  const items = ['exp3.jpeg'];
   const t = (en: string, tr: string) => (lang === "en" ? en : tr);
   return(
     <div className="vsl-exp-page">
@@ -770,6 +832,7 @@ function Exp3Page(lang: Lang,openModal:any){
             {t("Connect the ends of the circular wire to the power supply and the ammeter using alligator clip leads. Set the power supply to 2V. Sprinkle iron filings onto the wire and observe how they arrange themselves in response to the magnetic field generated at the center of the circle. Adjust the power supply to 4V, 8V, 10V, and 12V, and observe how the iron filings form patterns at each setting.", "Halka şeklindeki telin uçlarını timsah klipsli kablolar kullanarak güç kaynağına ve ampermetreye bağlayın. Güç kaynağını 2V seviyesine ayarlayın. Telin üzerine demir tozları serpin ve halkanın merkezinde oluşan manyetik alana tepki olarak nasıl dizildiklerini gözlemleyin. Güç kaynağını sırasıyla 4V, 8V, 10V ve 12V'a ayarlayarak demir tozlarının her ayarda nasıl desenler oluşturduğunu gözlemleyin.")}
           </p>
 
+          <Gallery lang={lang} images={items} showTag={false}></Gallery>
           <div className="vsl-vr-notice">
             <p>
               {t("PUT ON YOUR VR HEADSET. YOU WILL FIND ALL THE VIRTUAL MATERIALS FOR THE EXPERIMENT AND ZOZO THE ASSISTANT ON THE VIRTUAL EXPERIMENT TABLE.", "VR GÖZLÜĞÜNÜZÜ TAKIN. DENEY İÇİN GEREKLİ TÜM SANAL MALZEMELERİ VE ASİSTAN ZOZO'YU SANAL DENEY MASASINDA BULACAKSINIZ.")}
@@ -777,18 +840,16 @@ function Exp3Page(lang: Lang,openModal:any){
           </div>
         </div>
 
-        <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={openModal}>
-            {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
-          </button>
-        </div>
+        
       </main>
     </div>
   )
 }
 
 function Exp4Page(lang: Lang,openModal:any){
-  const t = (en: string, tr: string) => (lang === "en" ? en : tr);
+  const t = (en: string, tr: string) => (lang === "en" ? en : tr); 
+  const items = ['exp4.jpeg'];
+
   return(
     <div className="vsl-exp-page">
       {getStyle()}
@@ -812,6 +873,7 @@ function Exp4Page(lang: Lang,openModal:any){
             {t("Connect the ends of the coil to the power supply and the ammeter using alligator clip leads. Set the power supply to 2V. Sprinkle iron filings onto the coil and observe how they arrange themselves in response to the magnetic field formed along the coil's axis. Then, adjust the power supply to 4V, 8V, 10V, and 12V, observing how the iron filings form patterns at each setting.", "Bobinin uçlarını timsah klipsli kablolar kullanarak güç kaynağına ve ampermetreye bağlayın. Güç kaynağını 2V seviyesine ayarlayın. Bobinin üzerine demir tozları serpin ve bobin ekseni boyunca oluşan manyetik alana tepki olarak nasıl dizildiklerini gözlemleyin. Ardından güç kaynağını sırasıyla 4V, 8V, 10V ve 12V'a ayarlayarak demir tozlarının her ayarda nasıl desenler oluşturduğunu gözlemleyin.")}
           </p>
 
+          <Gallery lang={lang} images={items} showTag={false}></Gallery>
           <div className="vsl-vr-notice">
             <p>
               {t("PUT ON YOUR VR HEADSET. YOU WILL FIND ALL THE VIRTUAL MATERIALS FOR THE EXPERIMENT AND ZOZO THE ASSISTANT ON THE VIRTUAL EXPERIMENT TABLE.", "VR GÖZLÜĞÜNÜZÜ TAKIN. DENEY İÇİN GEREKLİ TÜM SANAL MALZEMELERİ VE ASİSTAN ZOZO'YU SANAL DENEY MASASINDA BULACAKSINIZ.")}
@@ -819,11 +881,7 @@ function Exp4Page(lang: Lang,openModal:any){
           </div>
         </div>
 
-        <div className="vsl-support-btn-wrapper">
-          <button className="vsl-tech-btn" onClick={openModal}>
-            {t("TECHNICAL SUPPORT", "TEKNİK DESTEK")}
-          </button>
-        </div>
+        
       </main>
     </div>
   )
